@@ -146,7 +146,7 @@
       "subtitle": "Local-First AI Teacher's Review App",
       "pitch": "A local-first app that records class audio through a virtual microphone, transcribes it with Groq Whisper (Tagalog), and turns transcripts into study notes, flashcards, and quizzes with Gemini — no cloud hosting, no user accounts, fully private.",
       "category": "AI Pipeline · Local-First",
-      "image": null,
+      "image": "./assets/lept-review-hub.jpg",
       "repo": "https://github.com/phccoder/review-hub",
       "demo": null,
       "demoLabel": null,
