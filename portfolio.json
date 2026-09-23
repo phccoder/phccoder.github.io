@@ -25,38 +25,47 @@
   "skills": [
     {
       "group": "Languages",
+      "icon": "code",
       "items": ["PHP 8.3+", "Python 3.11+", "JavaScript", "C++", "SQL", "Bash / PowerShell"]
     },
     {
       "group": "Web Framework (Backend)",
+      "icon": "server",
       "items": ["Laravel 12 / 13", "Livewire 4 + Volt", "Flask (API servers)", "REST APIs", "JSON-RPC", "Stripe Payment Intents"]
     },
     {
       "group": "Frontend",
+      "icon": "monitor",
       "items": ["Blade", "Alpine.js", "Tailwind CSS 3", "Vite", "HTML / CSS", "Electron", "CustomTkinter (desktop GUI)"]
     },
     {
       "group": "Databases & Data",
+      "icon": "database",
       "items": ["PostgreSQL 17", "MySQL / MariaDB", "SQLite", "Legacy DBF / MySQL migration", "pandas / openpyxl", "AWS S3"]
     },
     {
       "group": "Real-Time & WebSockets",
+      "icon": "broadcast",
       "items": ["Laravel Reverb", "Pusher", "Laravel Echo", "Presence Channels", "Server-Sent Events", "WebSocket command dispatch"]
     },
     {
       "group": "Hardware & Edge",
+      "icon": "cpu",
       "items": ["ZKTeco / NGTeco biometric devices", "pyzk", "OBD-II / ELM327", "ADB / Fastboot / EDL / BROM", "VB-Cable virtual audio"]
     },
     {
       "group": "Desktop Packaging",
+      "icon": "package",
       "items": ["PyInstaller", "Inno Setup 6", "NSSM service hosting", "CustomTkinter", "PyQt5", "tkinter"]
     },
     {
       "group": "DevOps & Infrastructure",
+      "icon": "cloud",
       "items": ["Docker", "GitHub Actions (CI/CD)", "nginx + PHP-FPM", "supervisord", "Cloudflare Tunnel", "Amazon Web Services (Ubuntu)", "Let's Encrypt"]
     },
     {
       "group": "AI & Data Pipelines",
+      "icon": "sparkles",
       "items": ["OpenAI Whisper (Groq)", "Google Gemini", "Transcription pipelines", "Automated import / reconciliation scripts"]
     }
   ],

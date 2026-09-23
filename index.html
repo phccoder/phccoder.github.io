@@ -97,7 +97,8 @@
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
   .skill-group { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; transition: 0.2s ease; }
   .skill-group:hover { border-color: rgba(108, 140, 255, 0.4); transform: translateY(-3px); }
-  .skill-group-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-2); margin-bottom: 14px; }
+  .skill-group-title { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-2); margin-bottom: 14px; }
+  .group-icon { flex: 0 0 auto; color: var(--accent); opacity: 0.95; }
   .skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
   .skill-chip { font-size: 12.5px; padding: 5px 11px; border-radius: 999px; background: rgba(108, 140, 255, 0.1); border: 1px solid rgba(108, 140, 255, 0.22); color: #cdd6f7; }
 
@@ -138,8 +139,10 @@
   /* ---------- Contact ---------- */
   .contact { border-top: 1px solid var(--line); margin-top: 64px; padding-top: 60px; }
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
-  .contact-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; transition: 0.2s ease; }
+  .contact-card { display: flex; align-items: center; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; transition: 0.2s ease; }
   .contact-card:hover { border-color: rgba(108, 140, 255, 0.5); transform: translateY(-3px); }
+  .contact-icon { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(108, 140, 255, 0.16), rgba(143, 108, 255, 0.16)); border: 1px solid rgba(108, 140, 255, 0.28); color: var(--accent-2); }
+  .contact-meta { min-width: 0; }
   .contact-label { display: block; font-weight: 700; font-size: 15px; }
   .contact-href { display: block; margin-top: 4px; font-family: ui-monospace, monospace; font-size: 12.5px; color: var(--accent-2); word-break: break-all; }
 
@@ -171,10 +174,10 @@
   "profile": {
     "name": "John David Gulifardo",
     "brand": "gulifardo.dev",
-    "role": "Full-Stack Engineer · Enterprise ERP & Edge Systems",
+    "role": "Full-Stack Engineer \u00b7 Enterprise ERP & Edge Systems",
     "location": "Philippines",
     "avatar": "./assets/profile.jpg",
-    "bio": "Bridging the gap between physical hardware and legacy systems on one side and modern web architectures on the other — custom desktop daemons, real-time sync engines, and enterprise SaaS. I architect production systems end-to-end: from TALL-stack web ERPs and multi-tenant payroll platforms to offline-first POS terminals, biometric time-attendance hardware, and self-updating Windows agents that keep branch offices running without technicians.",
+    "bio": "Bridging the gap between physical hardware and legacy systems on one side and modern web architectures on the other \u2014 custom desktop daemons, real-time sync engines, and enterprise SaaS. I architect production systems end-to-end: from TALL-stack web ERPs and multi-tenant payroll platforms to offline-first POS terminals, biometric time-attendance hardware, and self-updating Windows agents that keep branch offices running without technicians.",
     "highlights": [
       "Designs full systems, not just features",
       "Bridges proprietary hardware & legacy data to modern platforms",
@@ -205,6 +208,7 @@
   "skills": [
     {
       "group": "Languages",
+      "icon": "code",
       "items": [
         "PHP 8.3+",
         "Python 3.11+",
@@ -216,6 +220,7 @@
     },
     {
       "group": "Web Framework (Backend)",
+      "icon": "server",
       "items": [
         "Laravel 12 / 13",
         "Livewire 4 + Volt",
@@ -227,6 +232,7 @@
     },
     {
       "group": "Frontend",
+      "icon": "monitor",
       "items": [
         "Blade",
         "Alpine.js",
@@ -239,6 +245,7 @@
     },
     {
       "group": "Databases & Data",
+      "icon": "database",
       "items": [
         "PostgreSQL 17",
         "MySQL / MariaDB",
@@ -250,6 +257,7 @@
     },
     {
       "group": "Real-Time & WebSockets",
+      "icon": "broadcast",
       "items": [
         "Laravel Reverb",
         "Pusher",
@@ -261,6 +269,7 @@
     },
     {
       "group": "Hardware & Edge",
+      "icon": "cpu",
       "items": [
         "ZKTeco / NGTeco biometric devices",
         "pyzk",
@@ -271,6 +280,7 @@
     },
     {
       "group": "Desktop Packaging",
+      "icon": "package",
       "items": [
         "PyInstaller",
         "Inno Setup 6",
@@ -282,6 +292,7 @@
     },
     {
       "group": "DevOps & Infrastructure",
+      "icon": "cloud",
       "items": [
         "Docker",
         "GitHub Actions (CI/CD)",
@@ -294,6 +305,7 @@
     },
     {
       "group": "AI & Data Pipelines",
+      "icon": "sparkles",
       "items": [
         "OpenAI Whisper (Groq)",
         "Google Gemini",
@@ -306,8 +318,8 @@
     {
       "title": "APCHub (APCInventory)",
       "subtitle": "Enterprise Integrated Business Systems for a Multi-Branch Financial Institution",
-      "pitch": "A monolithic Laravel ERP that centralizes corporate operations, financial services, field marketing, HR, biometric timekeeping, and hardware infrastructure — engineered as three interlocking systems: a TALL-stack web backend, compiled Python biometric desktop tools, and legacy-data reconciliation & automation.",
-      "category": "Enterprise ERP · Real-Time · Hardware",
+      "pitch": "A monolithic Laravel ERP that centralizes corporate operations, financial services, field marketing, HR, biometric timekeeping, and hardware infrastructure \u2014 engineered as three interlocking systems: a TALL-stack web backend, compiled Python biometric desktop tools, and legacy-data reconciliation & automation.",
+      "category": "Enterprise ERP \u00b7 Real-Time \u00b7 Hardware",
       "image": "./assets/apchub.jpg",
       "repo": "https://github.com/phccoder/APCInventory",
       "caseStudy": "https://github.com/phccoder/integrated-business-system-case-study",
@@ -329,19 +341,19 @@
         "Docker"
       ],
       "features": [
-        "Scale that speaks for itself — 233 migrations, ~119 Eloquent models, ~93 Livewire components, 63 controllers, 32 artisan commands, 296 Blade views.",
-        "Custom RBAC built on role/permission pivots with a recursive manager→subordinate tree, hierarchy-scoped Kanban board, and ~90 permission slugs for per-button visibility — not a package drop-in.",
+        "Scale that speaks for itself \u2014 233 migrations, ~119 Eloquent models, ~93 Livewire components, 63 controllers, 32 artisan commands, 296 Blade views.",
+        "Custom RBAC built on role/permission pivots with a recursive manager\u2192subordinate tree, hierarchy-scoped Kanban board, and ~90 permission slugs for per-button visibility \u2014 not a package drop-in.",
         "Real-time everywhere: private chat with presence, read receipts & reactions, live biometric device telemetry, and a live passbook-release collection index over Pusher/Reverb + Echo.",
-        "Hardened middleware stack — global activity audit logger, session fingerprinting, forced password rotation, custom 2FA, security headers, and AJAX-aware auth redirects.",
+        "Hardened middleware stack \u2014 global activity audit logger, session fingerprinting, forced password rotation, custom 2FA, security headers, and AJAX-aware auth redirects.",
         "Universal biometric bridge: one SmartDeviceAdapter for ZKTeco AND NGTeco, write-verify loops, 100-worker subnet discovery, and a single-instance daemon that self-updates its own binary.",
-        "Automation & migration — Flask delta-sync server mirrored to S3, legacy MySQL/DBF pension migration with per-row fault isolation, CSV import pipelines with heuristic column repair, and scheduled billing/reminder jobs."
+        "Automation & migration \u2014 Flask delta-sync server mirrored to S3, legacy MySQL/DBF pension migration with per-row fault isolation, CSV import pipelines with heuristic column repair, and scheduled billing/reminder jobs."
       ]
     },
     {
       "title": "M2P POS",
       "subtitle": "Offline-First Point-of-Sale, Inventory & BIR-Compliance System",
-      "pitch": "A complete offline-first POS + inventory + financials system for a school-supplies wholesale/retail business. Runs on one PC or a small LAN with a permission-gated JSON-RPC server fronting PostgreSQL — no internet required, ever.",
-      "category": "Desktop App · FIN-Tech Compliance",
+      "pitch": "A complete offline-first POS + inventory + financials system for a school-supplies wholesale/retail business. Runs on one PC or a small LAN with a permission-gated JSON-RPC server fronting PostgreSQL \u2014 no internet required, ever.",
+      "category": "Desktop App \u00b7 FIN-Tech Compliance",
       "image": "https://raw.githubusercontent.com/phccoder/m2p-pos-showcase/main/docs/screenshots/01-dashboard.png",
       "repo": "https://github.com/phccoder/m2p-pos",
       "showcase": "https://github.com/phccoder/m2p-pos-showcase",
@@ -359,19 +371,19 @@
         "pytest"
       ],
       "features": [
-        "167 RPC methods registered in a single ROUTES map as source of truth — access decided by exact permission-set membership, per-user permissions overriding roles.",
+        "167 RPC methods registered in a single ROUTES map as source of truth \u2014 access decided by exact permission-set membership, per-user permissions overriding roles.",
         "Money stored in integer centavos (never floats), an immutable stock-moves ledger, and a full audit log on every create/update/delete/status change.",
-        "BIR-ready out of the box — official receipts, annual grand-total accumulation, eJournal & eSales exports, VAT reconciliation, X/Z readings, and a reprint audit trail.",
-        "Dual-mode gateway: direct PostgreSQL on one PC, or a permission-enforced JSON-RPC LAN server for multi-workstation deployment — all 20 bir.* routes regression-tested end-to-end.",
+        "BIR-ready out of the box \u2014 official receipts, annual grand-total accumulation, eJournal & eSales exports, VAT reconciliation, X/Z readings, and a reprint audit trail.",
+        "Dual-mode gateway: direct PostgreSQL on one PC, or a permission-enforced JSON-RPC LAN server for multi-workstation deployment \u2014 all 20 bir.* routes regression-tested end-to-end.",
         "Production packaging: three Windows installers including a server bundle with self-contained PostgreSQL and NSSM services, plus a kiosk register build.",
-        "Keyboard-driven checkout (F1–F12), SC/PWD discounts, post-dated cheque monitor with calendar, AP/AR workflows, and supplier receivable contracts."
+        "Keyboard-driven checkout (F1\u2013F12), SC/PWD discounts, post-dated cheque monitor with calendar, AP/AR workflows, and supplier receivable contracts."
       ]
     },
     {
       "title": "Payroll & HR Management SaaS",
       "subtitle": "Multi-Tenant Philippine Payroll Platform with Biometric Reconciliation",
-      "pitch": "A multi-tenant payroll & HR SaaS for the Philippine market: automated weekly payroll with statutory 13th-month, cash-advance ledgers, biometric timekeeping reconciliation, and immutable locked payslips — plus one-click Windows compilers that self-host the entire stack on client machines.",
-      "category": "Multi-Tenant SaaS · Payroll Engine",
+      "pitch": "A multi-tenant payroll & HR SaaS for the Philippine market: automated weekly payroll with statutory 13th-month, cash-advance ledgers, biometric timekeeping reconciliation, and immutable locked payslips \u2014 plus one-click Windows compilers that self-host the entire stack on client machines.",
+      "category": "Multi-Tenant SaaS \u00b7 Payroll Engine",
       "image": "./assets/payroll-saas.jpg",
       "repo": "https://github.com/phccoder/philippines-payroll-management-system",
       "showcase": "https://github.com/phccoder/payroll-showcase",
@@ -391,10 +403,10 @@
         "Cloudflare Tunnel"
       ],
       "features": [
-        "Payroll as a state machine — draft → reviewed → locked registers produce immutable payslips that nothing retroactively rewrites.",
+        "Payroll as a state machine \u2014 draft \u2192 reviewed \u2192 locked registers produce immutable payslips that nothing retroactively rewrites.",
         "Biometric reconciliation engine: 4-punch sorting, worked-hours math, locked-period guards, and manual-adjustment protection so device sync never clobbers clerk-verified data.",
-        "Law-aware deduction scheduling — SSS / PhilHealth / Pag-IBIG contributions and loans land in their correct week-of-month; snapshotting freezes rates & shift boundaries at punch time.",
-        "Discrepancy gating blocks approve/lock/print/export until missing clock-outs are resolved — flagged and paid conservatively as half-days in the meantime.",
+        "Law-aware deduction scheduling \u2014 SSS / PhilHealth / Pag-IBIG contributions and loans land in their correct week-of-month; snapshotting freezes rates & shift boundaries at punch time.",
+        "Discrepancy gating blocks approve/lock/print/export until missing clock-outs are resolved \u2014 flagged and paid conservatively as half-days in the meantime.",
         "True multi-tenancy via BelongsToTenant + global TenantScope, Super Admin tenant switching, and white-label theming that regenerates contrast via CSS color-mix().",
         "Self-hosting compilers: one-click offline installers that register NSSM web/vite/reverb services, plus a Cloudflare tunnel variant for remote support and a NativePHP desktop build."
       ]
@@ -402,8 +414,8 @@
     {
       "title": "Branch Updater & Biometrics",
       "subtitle": "Centralized Branch Office Update & Data-Sync Infrastructure",
-      "pitch": "Keeps every branch office in sync — delta-syncing legacy FoxPro databases to a central cloud server, pushing application updates to branch PCs, pulling ZKTeco biometric attendance, and giving head office a command-center dashboard over it all.",
-      "category": "Distributed Systems · Edge Agents",
+      "pitch": "Keeps every branch office in sync \u2014 delta-syncing legacy FoxPro databases to a central cloud server, pushing application updates to branch PCs, pulling ZKTeco biometric attendance, and giving head office a command-center dashboard over it all.",
+      "category": "Distributed Systems \u00b7 Edge Agents",
       "image": "./assets/branch-updater.jpg",
       "repo": "https://github.com/phccoder/branch-updater-and-biometrics",
       "demo": null,
@@ -421,19 +433,19 @@
         "Inno Setup"
       ],
       "features": [
-        "Delta-sync engine — clients post file manifests by size + mtime, the server diffs and streams back only what's missing, then mirrors the full tree to S3 as durable storage.",
+        "Delta-sync engine \u2014 clients post file manifests by size + mtime, the server diffs and streams back only what's missing, then mirrors the full tree to S3 as durable storage.",
         "Dual-source branch recovery: pull archives from the server's live copy or directly from S3 over 8 threads for disaster recovery.",
-        "Self-updating distribution loop — manager pushes a zip, branch launcher polls/downloads/extracts/restarts, and a silent Inno Setup package re-registers NSSM services across the fleet.",
+        "Self-updating distribution loop \u2014 manager pushes a zip, branch launcher polls/downloads/extracts/restarts, and a silent Inno Setup package re-registers NSSM services across the fleet.",
         "Headless biometric agent polls ZKTeco hardware, uploads attendance, and listens for remote commands on a WebSocket channel in real time.",
         "Head-office Command Center (CustomTkinter) monitors every branch, pushes updates, triggers force-sync, and exports CSV.",
-        "Security discipline — secrets via environment variables or gitignored configs, branch IDs sanitized server-side, and TLS-enforced transport."
+        "Security discipline \u2014 secrets via environment variables or gitignored configs, branch IDs sanitized server-side, and TLS-enforced transport."
       ]
     },
     {
       "title": "LEPT Review Hub",
       "subtitle": "Local-First AI Teacher's Review App",
-      "pitch": "A local-first app that records class audio through a virtual microphone, transcribes it with Groq Whisper (Tagalog), and turns transcripts into study notes, flashcards, and quizzes with Gemini — no cloud hosting, no user accounts, fully private.",
-      "category": "AI Pipeline · Local-First",
+      "pitch": "A local-first app that records class audio through a virtual microphone, transcribes it with Groq Whisper (Tagalog), and turns transcripts into study notes, flashcards, and quizzes with Gemini \u2014 no cloud hosting, no user accounts, fully private.",
+      "category": "AI Pipeline \u00b7 Local-First",
       "image": "./assets/lept-review-hub.jpg",
       "repo": "https://github.com/phccoder/review-hub",
       "demo": null,
@@ -450,17 +462,17 @@
       ],
       "features": [
         "Virtual-mic class recording with automatic 2-minute chunking and background transcription via Groq's whisper-large-v3 in Tagalog.",
-        "Pure-PHP chunk splitting to keep WAV uploads under Groq's 25 MB API limit — no heavyweight processing required.",
+        "Pure-PHP chunk splitting to keep WAV uploads under Groq's 25 MB API limit \u2014 no heavyweight processing required.",
         "Single Livewire dashboard with tabs for notes, quiz, flashcards, chat, and upload; Gemini generates the study materials.",
         "Background auto-recorder watches Teams/Zoom/Chrome and captures only while a class is running.",
-        "100% local — SQLite database, keys from .env, .wav/.env/db gitignored so personal class data never leaves the machine or the repo."
+        "100% local \u2014 SQLite database, keys from .env, .wav/.env/db gitignored so personal class data never leaves the machine or the repo."
       ]
     }
   ],
   "otherProjects": [
     {
       "name": "Motorcycle Diagnostic Tool",
-      "oneLiner": "Real-time OBD-II diagnostics for Honda, Yamaha & Suzuki bikes via an ELM327 adapter — live gauges, DTC lookups, freeze-frame data, and a full hardware-free simulator.",
+      "oneLiner": "Real-time OBD-II diagnostics for Honda, Yamaha & Suzuki bikes via an ELM327 adapter \u2014 live gauges, DTC lookups, freeze-frame data, and a full hardware-free simulator.",
       "tags": [
         "Python",
         "customtkinter",
@@ -481,7 +493,7 @@
     },
     {
       "name": "Android Tools Universal",
-      "oneLiner": "Universal Android bootloader unlocker, ROM dump & ADB toolkit spanning Fastboot, Qualcomm EDL (Sahara/Firehose), MediaTek BROM, and 31 ADB commands — with an Electron GUI.",
+      "oneLiner": "Universal Android bootloader unlocker, ROM dump & ADB toolkit spanning Fastboot, Qualcomm EDL (Sahara/Firehose), MediaTek BROM, and 31 ADB commands \u2014 with an Electron GUI.",
       "tags": [
         "Python",
         "Electron",
@@ -493,7 +505,7 @@
     },
     {
       "name": "Caption Generator",
-      "oneLiner": "100% offline subtitle generator that turns any video into .srt captions with local Whisper AI — 90+ languages, portable Windows exe with bundled ffmpeg.",
+      "oneLiner": "100% offline subtitle generator that turns any video into .srt captions with local Whisper AI \u2014 90+ languages, portable Windows exe with bundled ffmpeg.",
       "tags": [
         "Python",
         "Whisper",
@@ -513,7 +525,7 @@
     },
     {
       "name": "GD Check Writer Pro",
-      "oneLiner": "Automated check-printing & cash-flow manager for Windows — number-to-words conversion, multi-account tracking, custom printer alignment, Free/Pro editions.",
+      "oneLiner": "Automated check-printing & cash-flow manager for Windows \u2014 number-to-words conversion, multi-account tracking, custom printer alignment, Free/Pro editions.",
       "tags": [
         "Desktop App",
         "Windows",
@@ -523,7 +535,7 @@
     },
     {
       "name": "Likhawit Event Ticketing",
-      "oneLiner": "Case study of an end-to-end event ticketing platform built for Kapit Productions — tiered QR tickets, on-site mobile validation, and payment API integration.",
+      "oneLiner": "Case study of an end-to-end event ticketing platform built for Kapit Productions \u2014 tiered QR tickets, on-site mobile validation, and payment API integration.",
       "tags": [
         "Laravel",
         "PHP",
@@ -557,7 +569,7 @@
     },
     {
       "name": "Bus Ticketing System",
-      "oneLiner": "C++ console app simulating dispatch — seat-map booking (10×4), route CRUD persistence, passenger manifests, auto drop-off, and daily sales reporting.",
+      "oneLiner": "C++ console app simulating dispatch \u2014 seat-map booking (10\u00d74), route CRUD persistence, passenger manifests, auto drop-off, and daily sales reporting.",
       "tags": [
         "C++",
         "OOP",
@@ -567,7 +579,7 @@
     },
     {
       "name": "BHW Children's Health Records",
-      "oneLiner": "C++ secured health-record console app for Barangay Health Workers — lockout-protected login, immunizations, and O(log n) patient lookups.",
+      "oneLiner": "C++ secured health-record console app for Barangay Health Workers \u2014 lockout-protected login, immunizations, and O(log n) patient lookups.",
       "tags": [
         "C++",
         "OOP",
@@ -589,7 +601,7 @@
   "utilities": [
     {
       "name": "SK & CC Checker",
-      "oneLiner": "PHP web tool exercising Stripe APIs end-to-end — key validation against /v1/account, live-result filtering, Telegram forwarding, and a glassmorphism mobile UI. An educational Stripe/API integration exercise.",
+      "oneLiner": "PHP web tool exercising Stripe APIs end-to-end \u2014 key validation against /v1/account, live-result filtering, Telegram forwarding, and a glassmorphism mobile UI. An educational Stripe/API integration exercise.",
       "tags": [
         "PHP",
         "Stripe API",
@@ -600,7 +612,7 @@
     },
     {
       "name": "nf-tokenizer",
-      "oneLiner": "Python desktop utility demonstrating threaded networking and SSE streaming — dual-format parsing and live token validation statuses.",
+      "oneLiner": "Python desktop utility demonstrating threaded networking and SSE streaming \u2014 dual-format parsing and live token validation statuses.",
       "tags": [
         "Python",
         "tkinter",
