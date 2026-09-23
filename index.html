@@ -68,11 +68,15 @@
   .stat-value { font-size: 26px; font-weight: 800; color: var(--accent-2); }
   .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
   .highlight-strip {
-    position: relative; max-width: var(--maxw); margin: 0 auto; padding: 22px 24px 40px;
-    display: flex; flex-wrap: wrap; gap: 10px 22px;
+    position: relative; max-width: var(--maxw); margin: 0 auto; padding: 6px 24px 44px;
+    display: flex; flex-wrap: wrap; gap: 8px 0;
   }
-  .highlight { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: var(--muted); }
-  .highlight::before { content: "// "; color: var(--accent-3); }
+  .highlight {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; color: #cdd6f7;
+    padding: 6px 14px; border: 1px solid rgba(148, 163, 255, 0.16); border-radius: 999px;
+    background: rgba(148, 163, 255, 0.06);
+  }
+  .highlight:not(:last-child) { margin-right: 10px; }
 
   /* ---------- Buttons / tags ---------- */
   .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; transition: 0.18s ease; border: 1px solid transparent; }
@@ -172,10 +176,10 @@
     "avatar": "./assets/profile.jpg",
     "bio": "Bridging the gap between physical hardware and legacy systems on one side and modern web architectures on the other — custom desktop daemons, real-time sync engines, and enterprise SaaS. I architect production systems end-to-end: from TALL-stack web ERPs and multi-tenant payroll platforms to offline-first POS terminals, biometric time-attendance hardware, and self-updating Windows agents that keep branch offices running without technicians.",
     "highlights": [
-      "Designs production systems end-to-end, not just features",
-      "Connects proprietary hardware & legacy DBF/MySQL systems to modern web platforms",
-      "BIR-compliant finance, payroll, and POS tooling for the Philippine market",
-      "Ships compiled, self-healing desktop agents and installers to real branch offices"
+      "Designs full systems, not just features",
+      "Bridges proprietary hardware & legacy data to modern platforms",
+      "BIR-compliant finance, payroll & POS tooling",
+      "Ships self-healing agents to real branch offices"
     ],
     "stats": [
       {
