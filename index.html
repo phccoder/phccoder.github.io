@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="gulifardo.dev — Full-Stack Engineer: enterprise ERP, real-time systems, desktop & edge engineering." />
+<title>gulifardo.dev — Full-Stack Engineer</title>
+<style>
+  :root {
+    --bg: #0b1020;
+    --bg-soft: #0f1628;
+    --card: #121a30;
+    --card-hover: #16203a;
+    --line: rgba(148, 163, 255, 0.12);
+    --text: #e6e9f5;
+    --muted: #9aa4c4;
+    --accent: #6c8cff;
+    --accent-2: #38d9ff;
+    --accent-3: #8f6cff;
+    --green: #34d399;
+    --radius: 16px;
+    --maxw: 1120px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(1200px 600px at 80% -10%, rgba(140, 108, 255, 0.14), transparent 60%),
+                radial-gradient(1200px 600px at 10% 0%, rgba(56, 217, 255, 0.10), transparent 55%),
+                var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { min-height: 100vh; display: flex; flex-direction: column; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hero-glow {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(700px 320px at 50% -20%, rgba(108, 140, 255, 0.18), transparent 70%);
+  }
+  .hero-inner {
+    position: relative;
+    max-width: var(--maxw); margin: 0 auto; padding: 72px 24px 48px;
+    display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start;
+  }
+  .hero-avatar {
+    width: 120px; height: 120px; border-radius: 28px; overflow: hidden;
+    background: linear-gradient(135deg, var(--accent), var(--accent-3));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px; font-weight: 800; color: #fff; box-shadow: 0 18px 45px rgba(108, 140, 255, 0.35);
+  }
+  .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-brand { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--accent-2); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+  .hero-name { font-size: clamp(34px, 5vw, 52px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; }
+  .hero-role { color: var(--accent); font-weight: 600; margin-top: 8px; font-size: clamp(15px, 2vw, 18px); }
+  .hero-tagline { margin-top: 14px; font-style: italic; color: var(--muted); font-size: 15px; }
+  .hero-bio { margin-top: 16px; color: var(--muted); max-width: 720px; font-size: 15px; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; }
+  .availability { display: inline-flex; align-items: center; gap: 8px; color: var(--green); font-size: 13px; font-weight: 600; margin-left: 4px; }
+  .pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); } 70% { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); } }
+  .hero-stats { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 8px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; display: flex; flex-direction: column; }
+  .stat-value { font-size: 26px; font-weight: 800; color: var(--accent-2); }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+  .highlight-strip {
+    position: relative; max-width: var(--maxw); margin: 0 auto; padding: 22px 24px 40px;
+    display: flex; flex-wrap: wrap; gap: 10px 22px;
+  }
+  .highlight { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: var(--muted); }
+  .highlight::before { content: "// "; color: var(--accent-3); }
+
+  /* ---------- Buttons / tags ---------- */
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; transition: 0.18s ease; border: 1px solid transparent; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-3)); color: #fff; box-shadow: 0 8px 24px rgba(108, 140, 255, 0.3); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(108, 140, 255, 0.45); }
+  .btn-ghost { border-color: var(--line); color: var(--text); background: rgba(255, 255, 255, 0.03); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-2); transform: translateY(-2px); }
+
+  /* ---------- Sections ---------- */
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .section { padding: 64px 0 8px; }
+  .section-head { margin-bottom: 30px; }
+  .eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--accent-2); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .section-title { font-size: clamp(24px, 3.4vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-top: 8px; }
+  .section-subtitle { color: var(--muted); margin-top: 8px; max-width: 640px; font-size: 15px; }
+
+  /* ---------- Skills ---------- */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .skill-group { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; transition: 0.2s ease; }
+  .skill-group:hover { border-color: rgba(108, 140, 255, 0.4); transform: translateY(-3px); }
+  .skill-group-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-2); margin-bottom: 14px; }
+  .skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-chip { font-size: 12.5px; padding: 5px 11px; border-radius: 999px; background: rgba(108, 140, 255, 0.1); border: 1px solid rgba(108, 140, 255, 0.22); color: #cdd6f7; }
+
+  /* ---------- Featured ---------- */
+  .featured-stack { display: flex; flex-direction: column; gap: 28px; }
+  .featured-card { display: grid; grid-template-columns: 340px 1fr; gap: 26px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: 0.2s ease; }
+  .featured-card:hover { border-color: rgba(108, 140, 255, 0.45); transform: translateY(-4px); box-shadow: 0 24px 50px rgba(2, 6, 23, 0.5); }
+  .featured-media { position: relative; min-height: 260px; background: var(--bg-soft); display: flex; align-items: center; justify-content: center; }
+  .featured-media img { width: 100%; height: 100%; object-fit: cover; }
+  .featured-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); text-align: center; padding: 24px; border: 1px dashed rgba(148, 163, 255, 0.28); border-radius: 12px; margin: 20px; }
+  .featured-placeholder span { font-weight: 700; color: var(--accent-2); }
+  .featured-placeholder small { font-size: 12px; }
+  .featured-index { position: absolute; top: 14px; left: 14px; font-family: ui-monospace, monospace; font-size: 13px; font-weight: 800; color: #0b1020; background: linear-gradient(135deg, var(--accent), var(--accent-2)); padding: 4px 9px; border-radius: 8px; }
+  .featured-body { padding: 26px 26px 26px 0; }
+  .featured-category { font-family: ui-monospace, monospace; font-size: 12px; color: var(--accent-3); text-transform: uppercase; letter-spacing: 0.1em; }
+  .featured-title { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; margin-top: 6px; }
+  .featured-subtitle { color: var(--accent); font-weight: 600; margin-top: 2px; font-size: 15px; }
+  .featured-pitch { color: var(--muted); margin-top: 12px; font-size: 14.5px; }
+  .featured-list { list-style: none; margin: 16px 0; display: flex; flex-direction: column; gap: 8px; counter-reset: none; }
+  .featured-list li { position: relative; padding-left: 22px; font-size: 14px; color: #cdd2e4; }
+  .featured-list li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 8px; height: 8px; border-radius: 2px; background: linear-gradient(135deg, var(--accent), var(--accent-3)); }
+  .featured-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+  .tag { font-size: 11.5px; padding: 4px 10px; border-radius: 999px; background: rgba(56, 217, 255, 0.08); border: 1px solid rgba(56, 217, 255, 0.25); color: #a8ecff; }
+  .featured-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+  /* ---------- Project grid ---------- */
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .project-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; transition: 0.2s ease; }
+  .project-card:hover { border-color: rgba(108, 140, 255, 0.45); transform: translateY(-3px); }
+  .project-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .project-head h4 { font-size: 16px; font-weight: 700; }
+  .project-head a { color: var(--muted); }
+  .project-head a:hover { color: var(--accent-2); }
+  .project-card p { color: var(--muted); font-size: 13.5px; margin-top: 8px; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .mini-tag { font-size: 11px; padding: 3px 9px; border-radius: 999px; background: rgba(108, 140, 255, 0.08); border: 1px solid rgba(108, 140, 255, 0.2); color: #b9c4ea; }
+
+  /* ---------- Contact ---------- */
+  .contact { border-top: 1px solid var(--line); margin-top: 64px; padding-top: 60px; }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .contact-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; transition: 0.2s ease; }
+  .contact-card:hover { border-color: rgba(108, 140, 255, 0.5); transform: translateY(-3px); }
+  .contact-label { display: block; font-weight: 700; font-size: 15px; }
+  .contact-href { display: block; margin-top: 4px; font-family: ui-monospace, monospace; font-size: 12.5px; color: var(--accent-2); word-break: break-all; }
+
+  /* ---------- Footer ---------- */
+  .footer { margin-top: 80px; border-top: 1px solid var(--line); padding: 36px 24px; text-align: center; color: var(--muted); font-size: 13px; }
+  .footer .copy { margin-top: 8px; color: var(--accent-2); }
+
+  .error { padding: 40px; text-align: center; color: #ff9d9d; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px) {
+    .hero-inner { grid-template-columns: 1fr; padding-top: 48px; gap: 22px; }
+    .hero-avatar { width: 88px; height: 88px; font-size: 38px; border-radius: 20px; }
+    .hero-stats { grid-column: 1; grid-template-columns: repeat(2, 1fr); }
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-media { min-height: 200px; }
+    .featured-body { padding: 0 24px 24px; }
+  }
+  @media (max-width: 480px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .section { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script id="portfolio-data" type="application/json">{
+  "profile": {
+    "name": "Gulivardo",
+    "brand": "gulifardo.dev",
+    "role": "Full-Stack Engineer · Enterprise ERP & Edge Systems",
+    "location": "Philippines",
+    "avatar": null,
+    "bio": "Bridging the gap between physical hardware and legacy systems on one side and modern web architectures on the other — custom desktop daemons, real-time sync engines, and enterprise SaaS. I architect production systems end-to-end: from TALL-stack web ERPs and multi-tenant payroll platforms to offline-first POS terminals, biometric time-attendance hardware, and self-updating Windows agents that keep branch offices running without technicians.",
+    "highlights": [
+      "Designs production systems end-to-end, not just features",
+      "Connects proprietary hardware & legacy DBF/MySQL systems to modern web platforms",
+      "BIR-compliant finance, payroll, and POS tooling for the Philippine market",
+      "Ships compiled, self-healing desktop agents and installers to real branch offices"
+    ],
+    "stats": [
+      {
+        "label": "Public Repos",
+        "value": "19"
+      },
+      {
+        "label": "Featured Systems",
+        "value": "5"
+      },
+      {
+        "label": "Core Languages",
+        "value": "6"
+      },
+      {
+        "label": "GitHub Followers",
+        "value": "12"
+      }
+    ],
+    "openToWork": true,
+    "tagline": "Hardware meets the web. Legacy meets real-time. Built to ship."
+  },
+  "skills": [
+    {
+      "group": "Languages",
+      "items": [
+        "PHP 8.3+",
+        "Python 3.11+",
+        "JavaScript",
+        "C++",
+        "SQL",
+        "Bash / PowerShell"
+      ]
+    },
+    {
+      "group": "Web Framework (Backend)",
+      "items": [
+        "Laravel 12 / 13",
+        "Livewire 4 + Volt",
+        "Flask (API servers)",
+        "REST APIs",
+        "JSON-RPC",
+        "Stripe Payment Intents"
+      ]
+    },
+    {
+      "group": "Frontend",
+      "items": [
+        "Blade",
+        "Alpine.js",
+        "Tailwind CSS 3",
+        "Vite",
+        "HTML / CSS",
+        "Electron",
+        "CustomTkinter (desktop GUI)"
+      ]
+    },
+    {
+      "group": "Databases & Data",
+      "items": [
+        "PostgreSQL 17",
+        "MySQL / MariaDB",
+        "SQLite",
+        "Legacy DBF / MySQL migration",
+        "pandas / openpyxl",
+        "AWS S3"
+      ]
+    },
+    {
+      "group": "Real-Time & WebSockets",
+      "items": [
+        "Laravel Reverb",
+        "Pusher",
+        "Laravel Echo",
+        "Presence Channels",
+        "Server-Sent Events",
+        "WebSocket command dispatch"
+      ]
+    },
+    {
+      "group": "Hardware & Edge",
+      "items": [
+        "ZKTeco / NGTeco biometric devices",
+        "pyzk",
+        "OBD-II / ELM327",
+        "ADB / Fastboot / EDL / BROM",
+        "VB-Cable virtual audio"
+      ]
+    },
+    {
+      "group": "Desktop Packaging",
+      "items": [
+        "PyInstaller",
+        "Inno Setup 6",
+        "NSSM service hosting",
+        "CustomTkinter",
+        "PyQt5",
+        "tkinter"
+      ]
+    },
+    {
+      "group": "DevOps & Infrastructure",
+      "items": [
+        "Docker",
+        "GitHub Actions (CI/CD)",
+        "nginx + PHP-FPM",
+        "supervisord",
+        "Cloudflare Tunnel",
+        "Amazon Web Services (Ubuntu)",
+        "Let's Encrypt"
+      ]
+    },
+    {
+      "group": "AI & Data Pipelines",
+      "items": [
+        "OpenAI Whisper (Groq)",
+        "Google Gemini",
+        "Transcription pipelines",
+        "Automated import / reconciliation scripts"
+      ]
+    }
+  ],
+  "featured": [
+    {
+      "title": "APCHub (APCInventory)",
+      "subtitle": "Enterprise Integrated Business Systems for a Multi-Branch Financial Institution",
+      "pitch": "A monolithic Laravel ERP that centralizes corporate operations, financial services, field marketing, HR, biometric timekeeping, and hardware infrastructure — engineered as three interlocking systems: a TALL-stack web backend, compiled Python biometric desktop tools, and legacy-data reconciliation & automation.",
+      "category": "Enterprise ERP · Real-Time · Hardware",
+      "image": null,
+      "repo": "https://github.com/phccoder/APCInventory",
+      "caseStudy": "https://github.com/phccoder/integrated-business-system-case-study",
+      "demo": "https://www.teamapcsolutions.com",
+      "demoLabel": "Live Production Instance",
+      "tags": [
+        "Laravel 13",
+        "PHP 8.3+",
+        "Livewire 4",
+        "Alpine.js",
+        "Tailwind 3",
+        "PostgreSQL",
+        "Python 3.13",
+        "customtkinter",
+        "pyzk",
+        "Flask",
+        "AWS S3",
+        "Pusher / Reverb",
+        "Docker"
+      ],
+      "features": [
+        "Scale that speaks for itself — 233 migrations, ~119 Eloquent models, ~93 Livewire components, 63 controllers, 32 artisan commands, 296 Blade views.",
+        "Custom RBAC built on role/permission pivots with a recursive manager→subordinate tree, hierarchy-scoped Kanban board, and ~90 permission slugs for per-button visibility — not a package drop-in.",
+        "Real-time everywhere: private chat with presence, read receipts & reactions, live biometric device telemetry, and a live passbook-release collection index over Pusher/Reverb + Echo.",
+        "Hardened middleware stack — global activity audit logger, session fingerprinting, forced password rotation, custom 2FA, security headers, and AJAX-aware auth redirects.",
+        "Universal biometric bridge: one SmartDeviceAdapter for ZKTeco AND NGTeco, write-verify loops, 100-worker subnet discovery, and a single-instance daemon that self-updates its own binary.",
+        "Automation & migration — Flask delta-sync server mirrored to S3, legacy MySQL/DBF pension migration with per-row fault isolation, CSV import pipelines with heuristic column repair, and scheduled billing/reminder jobs."
+      ]
+    },
+    {
+      "title": "M2P POS",
+      "subtitle": "Offline-First Point-of-Sale, Inventory & BIR-Compliance System",
+      "pitch": "A complete offline-first POS + inventory + financials system for a school-supplies wholesale/retail business. Runs on one PC or a small LAN with a permission-gated JSON-RPC server fronting PostgreSQL — no internet required, ever.",
+      "category": "Desktop App · FIN-Tech Compliance",
+      "image": "https://raw.githubusercontent.com/phccoder/m2p-pos-showcase/main/docs/screenshots/01-dashboard.png",
+      "repo": "https://github.com/phccoder/m2p-pos",
+      "showcase": "https://github.com/phccoder/m2p-pos-showcase",
+      "demo": "https://github.com/phccoder/m2p-pos-showcase",
+      "demoLabel": "Screenshots & Samples",
+      "tags": [
+        "Python 3.11+",
+        "CustomTkinter",
+        "PostgreSQL 17",
+        "JSON-RPC",
+        "psycopg 3",
+        "pandas",
+        "PyInstaller",
+        "Inno Setup 6",
+        "pytest"
+      ],
+      "features": [
+        "167 RPC methods registered in a single ROUTES map as source of truth — access decided by exact permission-set membership, per-user permissions overriding roles.",
+        "Money stored in integer centavos (never floats), an immutable stock-moves ledger, and a full audit log on every create/update/delete/status change.",
+        "BIR-ready out of the box — official receipts, annual grand-total accumulation, eJournal & eSales exports, VAT reconciliation, X/Z readings, and a reprint audit trail.",
+        "Dual-mode gateway: direct PostgreSQL on one PC, or a permission-enforced JSON-RPC LAN server for multi-workstation deployment — all 20 bir.* routes regression-tested end-to-end.",
+        "Production packaging: three Windows installers including a server bundle with self-contained PostgreSQL and NSSM services, plus a kiosk register build.",
+        "Keyboard-driven checkout (F1–F12), SC/PWD discounts, post-dated cheque monitor with calendar, AP/AR workflows, and supplier receivable contracts."
+      ]
+    },
+    {
+      "title": "Payroll & HR Management SaaS",
+      "subtitle": "Multi-Tenant Philippine Payroll Platform with Biometric Reconciliation",
+      "pitch": "A multi-tenant payroll & HR SaaS for the Philippine market: automated weekly payroll with statutory 13th-month, cash-advance ledgers, biometric timekeeping reconciliation, and immutable locked payslips — plus one-click Windows compilers that self-host the entire stack on client machines.",
+      "category": "Multi-Tenant SaaS · Payroll Engine",
+      "image": "https://raw.githubusercontent.com/phccoder/payroll-showcase/main/screenshots/02-admin-dashboard.png",
+      "repo": "https://github.com/phccoder/philippines-payroll-management-system",
+      "showcase": "https://github.com/phccoder/payroll-showcase",
+      "demo": null,
+      "demoLabel": "Demo seed: admin@example.com / password",
+      "tags": [
+        "Laravel 13",
+        "Livewire 3 + Volt",
+        "Alpine.js",
+        "Tailwind 3",
+        "MySQL / SQLite",
+        "Reverb",
+        "DOMpdf",
+        "Maatwebsite Excel",
+        "pyzk",
+        "NSSM",
+        "Cloudflare Tunnel"
+      ],
+      "features": [
+        "Payroll as a state machine — draft → reviewed → locked registers produce immutable payslips that nothing retroactively rewrites.",
+        "Biometric reconciliation engine: 4-punch sorting, worked-hours math, locked-period guards, and manual-adjustment protection so device sync never clobbers clerk-verified data.",
+        "Law-aware deduction scheduling — SSS / PhilHealth / Pag-IBIG contributions and loans land in their correct week-of-month; snapshotting freezes rates & shift boundaries at punch time.",
+        "Discrepancy gating blocks approve/lock/print/export until missing clock-outs are resolved — flagged and paid conservatively as half-days in the meantime.",
+        "True multi-tenancy via BelongsToTenant + global TenantScope, Super Admin tenant switching, and white-label theming that regenerates contrast via CSS color-mix().",
+        "Self-hosting compilers: one-click offline installers that register NSSM web/vite/reverb services, plus a Cloudflare tunnel variant for remote support and a NativePHP desktop build."
+      ]
+    },
+    {
+      "title": "Branch Updater & Biometrics",
+      "subtitle": "Centralized Branch Office Update & Data-Sync Infrastructure",
+      "pitch": "Keeps every branch office in sync — delta-syncing legacy FoxPro databases to a central cloud server, pushing application updates to branch PCs, pulling ZKTeco biometric attendance, and giving head office a command-center dashboard over it all.",
+      "category": "Distributed Systems · Edge Agents",
+      "image": null,
+      "repo": "https://github.com/phccoder/branch-updater-and-biometrics",
+      "demo": null,
+      "demoLabel": null,
+      "tags": [
+        "Python 3.10+",
+        "Flask",
+        "AWS S3",
+        "boto3",
+        "WebSocket / Reverb",
+        "PyInstaller",
+        "customtkinter",
+        "pyzk / python-socketio",
+        "NSSM",
+        "Inno Setup"
+      ],
+      "features": [
+        "Delta-sync engine — clients post file manifests by size + mtime, the server diffs and streams back only what's missing, then mirrors the full tree to S3 as durable storage.",
+        "Dual-source branch recovery: pull archives from the server's live copy or directly from S3 over 8 threads for disaster recovery.",
+        "Self-updating distribution loop — manager pushes a zip, branch launcher polls/downloads/extracts/restarts, and a silent Inno Setup package re-registers NSSM services across the fleet.",
+        "Headless biometric agent polls ZKTeco hardware, uploads attendance, and listens for remote commands on a WebSocket channel in real time.",
+        "Head-office Command Center (CustomTkinter) monitors every branch, pushes updates, triggers force-sync, and exports CSV.",
+        "Security discipline — secrets via environment variables or gitignored configs, branch IDs sanitized server-side, and TLS-enforced transport."
+      ]
+    },
+    {
+      "title": "LEPT Review Hub",
+      "subtitle": "Local-First AI Teacher's Review App",
+      "pitch": "A local-first app that records class audio through a virtual microphone, transcribes it with Groq Whisper (Tagalog), and turns transcripts into study notes, flashcards, and quizzes with Gemini — no cloud hosting, no user accounts, fully private.",
+      "category": "AI Pipeline · Local-First",
+      "image": null,
+      "repo": "https://github.com/phccoder/review-hub",
+      "demo": null,
+      "demoLabel": null,
+      "tags": [
+        "Laravel 12",
+        "Livewire 4",
+        "Gemini",
+        "Groq Whisper (tl)",
+        "Python",
+        "tkinter",
+        "SQLite",
+        "VB-Cable"
+      ],
+      "features": [
+        "Virtual-mic class recording with automatic 2-minute chunking and background transcription via Groq's whisper-large-v3 in Tagalog.",
+        "Pure-PHP chunk splitting to keep WAV uploads under Groq's 25 MB API limit — no heavyweight processing required.",
+        "Single Livewire dashboard with tabs for notes, quiz, flashcards, chat, and upload; Gemini generates the study materials.",
+        "Background auto-recorder watches Teams/Zoom/Chrome and captures only while a class is running.",
+        "100% local — SQLite database, keys from .env, .wav/.env/db gitignored so personal class data never leaves the machine or the repo."
+      ]
+    }
+  ],
+  "otherProjects": [
+    {
+      "name": "Motorcycle Diagnostic Tool",
+      "oneLiner": "Real-time OBD-II diagnostics for Honda, Yamaha & Suzuki bikes via an ELM327 adapter — live gauges, DTC lookups, freeze-frame data, and a full hardware-free simulator.",
+      "tags": [
+        "Python",
+        "customtkinter",
+        "OBD-II / ELM327"
+      ],
+      "repo": "https://github.com/phccoder/Motorcycle-Diag-Tool"
+    },
+    {
+      "name": "arnel-validator",
+      "oneLiner": "Single-file desktop app that extracts DBF records by date range and validates them against Excel by account number, with match highlighting and portable .exe distribution.",
+      "tags": [
+        "Python",
+        "customtkinter",
+        "pandas",
+        "dbfread"
+      ],
+      "repo": "https://github.com/phccoder/arnel-validator"
+    },
+    {
+      "name": "Android Tools Universal",
+      "oneLiner": "Universal Android bootloader unlocker, ROM dump & ADB toolkit spanning Fastboot, Qualcomm EDL (Sahara/Firehose), MediaTek BROM, and 31 ADB commands — with an Electron GUI.",
+      "tags": [
+        "Python",
+        "Electron",
+        "ADB",
+        "EDL",
+        "BROM"
+      ],
+      "repo": "https://github.com/phccoder/android-tools-universal"
+    },
+    {
+      "name": "Caption Generator",
+      "oneLiner": "100% offline subtitle generator that turns any video into .srt captions with local Whisper AI — 90+ languages, portable Windows exe with bundled ffmpeg.",
+      "tags": [
+        "Python",
+        "Whisper",
+        "PyInstaller"
+      ],
+      "repo": "https://github.com/phccoder/caption-generator"
+    },
+    {
+      "name": "Mediafire Bulk Downloader",
+      "oneLiner": "IDM-style multi-threaded desktop downloader for Mediafire files and folders with live speed, progress, and link-protection bypass.",
+      "tags": [
+        "Python",
+        "ttkbootstrap",
+        "requests"
+      ],
+      "repo": "https://github.com/phccoder/mediafire-bulk-downloader"
+    },
+    {
+      "name": "GD Check Writer Pro",
+      "oneLiner": "Automated check-printing & cash-flow manager for Windows — number-to-words conversion, multi-account tracking, custom printer alignment, Free/Pro editions.",
+      "tags": [
+        "Desktop App",
+        "Windows",
+        "Payments"
+      ],
+      "repo": "https://github.com/phccoder/GD-Check-Writer-Pro"
+    },
+    {
+      "name": "Likhawit Event Ticketing",
+      "oneLiner": "Case study of an end-to-end event ticketing platform built for Kapit Productions — tiered QR tickets, on-site mobile validation, and payment API integration.",
+      "tags": [
+        "Laravel",
+        "PHP",
+        "QR Codes",
+        "Payments"
+      ],
+      "repo": "https://github.com/phccoder/event-ticketing-and-management-system"
+    },
+    {
+      "name": "Laravel Payment Gateway",
+      "oneLiner": "TALL-stack demo integrating Stripe Payment Intents with Apple Pay & Google Pay via Stripe's dynamic Payment Element.",
+      "tags": [
+        "Laravel",
+        "Livewire",
+        "Alpine.js",
+        "Tailwind",
+        "Stripe"
+      ],
+      "repo": "https://github.com/phccoder/laravel-payment-gateway"
+    },
+    {
+      "name": "FinTech Gift-Card Exchange",
+      "oneLiner": "Case study of a gift-card-to-cash platform with a resilient Paxful API integration, encrypted storage, and a trust-focused checkout flow.",
+      "tags": [
+        "Laravel",
+        "PHP",
+        "FinTech",
+        "REST APIs"
+      ],
+      "repo": "https://github.com/phccoder/fintech-gift-card-exchange-platform"
+    },
+    {
+      "name": "Bus Ticketing System",
+      "oneLiner": "C++ console app simulating dispatch — seat-map booking (10×4), route CRUD persistence, passenger manifests, auto drop-off, and daily sales reporting.",
+      "tags": [
+        "C++",
+        "OOP",
+        "File I/O"
+      ],
+      "repo": "https://github.com/phccoder/Bus-Ticketing-System"
+    },
+    {
+      "name": "BHW Children's Health Records",
+      "oneLiner": "C++ secured health-record console app for Barangay Health Workers — lockout-protected login, immunizations, and O(log n) patient lookups.",
+      "tags": [
+        "C++",
+        "OOP",
+        "Security"
+      ],
+      "repo": "https://github.com/phccoder/BHW-Children-s-Health-Record-System"
+    },
+    {
+      "name": "FreeFlix",
+      "oneLiner": "Free movie browsing site deployed on Netlify, powered by TheMovieDB.",
+      "tags": [
+        "HTML",
+        "CSS",
+        "API"
+      ],
+      "repo": "https://github.com/phccoder/FreeFlix"
+    }
+  ],
+  "utilities": [
+    {
+      "name": "SK & CC Checker",
+      "oneLiner": "PHP web tool exercising Stripe APIs end-to-end — key validation against /v1/account, live-result filtering, Telegram forwarding, and a glassmorphism mobile UI. An educational Stripe/API integration exercise.",
+      "tags": [
+        "PHP",
+        "Stripe API",
+        "Telegram API",
+        "Web"
+      ],
+      "repo": "https://github.com/phccoder/SK_CC_Checker"
+    },
+    {
+      "name": "nf-tokenizer",
+      "oneLiner": "Python desktop utility demonstrating threaded networking and SSE streaming — dual-format parsing and live token validation statuses.",
+      "tags": [
+        "Python",
+        "tkinter",
+        "SSE"
+      ],
+      "repo": "https://github.com/phccoder/nf-tokenizer"
+    },
+    {
+      "name": "mb-resetter",
+      "oneLiner": "PyQt5 system utility with UAC auto-elevation, GUID backup/restore, and a GitHub Actions CI pipeline that auto-builds tagged releases.",
+      "tags": [
+        "Python",
+        "PyQt5",
+        "GitHub Actions"
+      ],
+      "repo": "https://github.com/phccoder/mb-resetter"
+    }
+  ],
+  "contact": {
+    "website": {
+      "label": "gulifardo.dev",
+      "href": "https://gulifardo.dev"
+    },
+    "github": {
+      "label": "github.com/phccoder",
+      "href": "https://github.com/phccoder"
+    },
+    "email": {
+      "label": "gulifardo.dev@gmail.com",
+      "href": "mailto:gulifardo.dev@gmail.com"
+    },
+    "telegram": {
+      "label": "@gulifardo_dev",
+      "href": "https://t.me/gulifardo_dev"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/gulifardo-dev/"
+    },
+    "kofi": {
+      "label": "Buy me a coffee",
+      "href": "https://ko-fi.com/phcc0d3r"
+    },
+    "facebook": {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/profile.php?id=61581321244065"
+    }
+  },
+  "footer": {
+    "note": "Crafted from live GitHub analysis — READMEs, repo metadata, and deployed instances. Portfolio data is a React-rendered single page; open index.html to view it, or drop in your own project photos via the image fields in portfolio.json.",
+    "copyright": "gulifardo.dev"
+  }
+}</script>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" data-presets="react" src="./Portfolio.jsx"></script>
+  <script type="text/babel" data-presets="react">
+    const el = document.getElementById("portfolio-data");
+    const data = el ? JSON.parse(el.textContent) : null;
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      React.createElement(window.Portfolio, { data })
+    );
+  </script>
+</body>
+</html>
